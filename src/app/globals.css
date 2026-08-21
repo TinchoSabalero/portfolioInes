@@ -1,0 +1,343 @@
+/* ==========================================================================
+   Tokens
+   Valores tomados del diseño aprobado. Nada de color o tipografía debe
+   escribirse literal en un componente: siempre a través de estas variables.
+   ========================================================================== */
+
+:root {
+  /* Superficies, del fondo hacia adelante */
+  --linen: #f4f0ea;
+  --linen-warm: #ede6da;
+  --sand: #e7dfd3;
+  --sand-deep: #e0d5c4;
+  --white: #ffffff;
+
+  /* Tinta */
+  --ink: #3a322b;
+  --ink-deep: #2e2822;
+  --ink-soft: #554c42;
+  --muted: #6e6357;
+  --muted-light: #9a8c7e;
+  --on-dark: #c4b7a6;
+  --on-dark-dim: #8a7d6d;
+  --on-dark-eyebrow: #b5a48f;
+
+  /* Líneas */
+  --line: #e2d9cb;
+  --line-warm: #ddd2c2;
+  --line-card: #e5dcce;
+  --line-hover: #c9bcaa;
+  --line-strong: #c0b2a0;
+  --line-dark: #5c5147;
+
+  /* Acento */
+  --accent: #7d6551;
+
+  /* WhatsApp */
+  --wa: #25d366;
+  --wa-hover: #1ebe57;
+  --wa-shadow: rgba(37, 211, 102, 0.42);
+
+  /* Tipografía */
+  --font-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-karla), "Helvetica Neue", Arial, sans-serif;
+
+  /* Ritmo */
+  --gutter: 56px;
+  --measure: 1200px;
+  --measure-narrow: 900px;
+  --section-y: 96px;
+}
+
+/* El sitio tiene una sola identidad visual, cálida y clara: no invertimos a
+   oscuro. Aun así pintamos el fondo explícitamente para no heredar el del
+   navegador si el usuario fuerza un tema. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light;
+  }
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--linen);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-weight: 400;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--ink);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================================
+   Primitivas compartidas
+   ========================================================================== */
+
+.wrap {
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.wrap-narrow {
+  max-width: var(--measure-narrow);
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.band {
+  background: var(--linen-warm);
+  border-block: 1px solid var(--line);
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 300;
+  line-height: 1.18;
+  color: var(--ink);
+}
+
+.lede {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--muted);
+  max-width: 46ch;
+}
+
+/* Pares de dos columnas: texto + imagen, o intro + lista */
+.split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 80px;
+  align-items: center;
+}
+
+.split-top {
+  align-items: start;
+}
+
+/* Imagen apoyada sobre un bloque de color desplazado */
+.matted {
+  position: relative;
+  padding: 0 0 26px 26px;
+}
+
+.matted::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 76%;
+  height: 74%;
+  background: var(--sand);
+}
+
+.matted-right {
+  padding: 26px 26px 0 0;
+}
+
+.matted-right::before {
+  left: auto;
+  right: 0;
+  top: 0;
+  bottom: auto;
+  width: 78%;
+  height: 76%;
+  background: var(--sand-deep);
+}
+
+.matted img {
+  position: relative;
+  width: 100%;
+  object-fit: cover;
+  filter: grayscale(0.18);
+}
+
+/* Botones */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 17px 30px;
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  background: var(--ink);
+  color: var(--linen);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.btn-invert {
+  background: var(--linen);
+  border-color: var(--linen);
+  color: var(--ink);
+}
+
+.btn-invert:hover {
+  background: transparent;
+  color: var(--linen);
+  border-color: var(--linen);
+}
+
+.btn-quiet {
+  padding: 11px 20px;
+  background: transparent;
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.btn-quiet:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--linen);
+}
+
+/* Fila con viñeta redonda, usada en varias listas */
+.row {
+  display: flex;
+  gap: 18px;
+  padding-block: 22px;
+  border-top: 1px solid var(--line-warm);
+}
+
+.row:last-child {
+  border-bottom: 1px solid var(--line-warm);
+}
+
+/* ==========================================================================
+   Responsive
+   Dos cortes: tablet (una columna) y teléfono (tipografía y botones).
+   ========================================================================== */
+
+@media (max-width: 1040px) {
+  :root {
+    --gutter: 30px;
+    --section-y: 72px;
+  }
+
+  .split {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 46px;
+  }
+
+  .title {
+    font-size: 34px;
+  }
+
+  .matted,
+  .matted-right {
+    padding: 0 0 18px 18px;
+  }
+
+  .matted-right::before {
+    left: 0;
+    right: auto;
+    top: auto;
+    bottom: 0;
+    width: 78%;
+    height: 72%;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --gutter: 22px;
+    --section-y: 56px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

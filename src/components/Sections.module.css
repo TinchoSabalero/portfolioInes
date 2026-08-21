@@ -1,0 +1,609 @@
+/* Estilos de las secciones de la portada. Un solo módulo compartido: las
+   secciones son variaciones de pocos patrones y separarlas en diez archivos
+   multiplicaría los sitios donde mirar cuando algo se desalinea. */
+
+/* ---------- Encabezado de sección ---------- */
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 48px;
+}
+
+.headTight {
+  margin-bottom: 44px;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding-block: var(--section-y) calc(var(--section-y) + 8px);
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.heroEyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--accent);
+}
+
+.heroEyebrow::before {
+  content: "";
+  width: 44px;
+  height: 1px;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.heroEyebrow span {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: 70px;
+  font-weight: 300;
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.heroTitle em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.heroBody {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 46ch;
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 6px;
+}
+
+.heroLink {
+  font-size: 13.5px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line-hover);
+  padding-bottom: 3px;
+}
+
+.heroImg {
+  height: 540px;
+}
+
+/* ---------- Quizás llegaste hasta acá ---------- */
+
+.reasonsTitle {
+  max-width: 20ch;
+  margin-bottom: 48px;
+}
+
+.reasonsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 72px;
+}
+
+.reasonsCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.reason {
+  display: flex;
+  gap: 18px;
+  padding-block: 22px;
+  border-top: 1px solid var(--line-warm);
+}
+
+.reason:last-child {
+  border-bottom: 1px solid var(--line-warm);
+}
+
+.reason::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin-top: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.reason p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+.reasonsClosing {
+  margin-top: 44px;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--accent);
+  max-width: 34ch;
+}
+
+/* ---------- Servicios ---------- */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 40px 34px;
+  background: var(--white);
+  border: 1px solid var(--line-card);
+  transition: border-color 0.35s ease, transform 0.35s ease;
+}
+
+.card:hover {
+  border-color: var(--line-hover);
+  transform: translateY(-3px);
+}
+
+.card svg {
+  color: var(--accent);
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.card p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+/* ---------- Cita sobre imagen ---------- */
+
+.quote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 420px;
+  padding-inline: 22px;
+  background-image: url("/img/espacio.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.quoteCard {
+  max-width: 700px;
+  padding: 52px 64px;
+  text-align: center;
+  background: color-mix(in srgb, var(--linen) 90%, transparent);
+  border: 1px solid var(--line);
+}
+
+.quoteCard p {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+/* ---------- Método ---------- */
+
+.methodIntro {
+  margin-top: 12px;
+  max-width: 42ch;
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--muted);
+}
+
+.principles {
+  display: flex;
+  flex-direction: column;
+}
+
+.principle {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding-block: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.principle:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.principleTitle {
+  font-family: var(--font-display);
+  font-size: 23px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.principle p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+/* ---------- Sobre mí ---------- */
+
+.aboutText {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.aboutText p {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  max-width: 46ch;
+}
+
+.credentials {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line-warm);
+}
+
+.credentials p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.aboutImg {
+  height: 470px;
+}
+
+/* ---------- Terapia online ---------- */
+
+.onlineText {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.onlineEyebrow {
+  color: var(--accent);
+}
+
+.onlinePoints {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.onlinePoint {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding-block: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.onlinePoint:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.onlinePoint svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--accent);
+}
+
+.onlinePoint p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+
+.onlineImg {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  filter: grayscale(0.12);
+}
+
+/* ---------- Preguntas frecuentes ---------- */
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+}
+
+.faqItem {
+  padding-block: 26px;
+  border-top: 1px solid var(--line-warm);
+}
+
+.faqItem:last-child {
+  border-bottom: 1px solid var(--line-warm);
+}
+
+.faqButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  padding: 0;
+  background: none;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  color: var(--ink);
+  transition: color 0.2s ease;
+}
+
+.faqButton:hover {
+  color: var(--accent);
+}
+
+.faqQuestion {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.faqSign {
+  flex-shrink: 0;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.faqAnswer {
+  margin-top: 16px;
+  max-width: 62ch;
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+/* ---------- Contacto ---------- */
+
+.contact {
+  background: var(--ink);
+}
+
+.contactInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  text-align: center;
+}
+
+.contactEyebrow {
+  color: var(--on-dark-eyebrow);
+}
+
+.contactTitle {
+  font-size: 48px;
+  max-width: 20ch;
+  color: var(--linen);
+}
+
+.contactBody {
+  max-width: 52ch;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--on-dark);
+}
+
+.contactCta {
+  margin-top: 10px;
+}
+
+.contactLinks {
+  display: flex;
+  gap: 36px;
+  margin-top: 18px;
+}
+
+.contactLinks a {
+  font-size: 14px;
+  color: var(--on-dark);
+  border-bottom: 1px solid var(--line-dark);
+  padding-bottom: 3px;
+}
+
+.contactLinks a:hover {
+  color: var(--linen);
+  border-color: var(--on-dark);
+}
+
+/* ---------- Pie ---------- */
+
+.footer {
+  background: var(--ink-deep);
+  padding-block: 30px;
+}
+
+.footerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.footerInner p {
+  font-size: 12.5px;
+  color: var(--on-dark-dim);
+}
+
+/* ---------- Botón flotante de WhatsApp ---------- */
+
+.whatsapp {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 15px 24px 15px 19px;
+  border-radius: 40px;
+  background: var(--wa);
+  color: var(--white);
+  box-shadow: 0 8px 26px var(--wa-shadow);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.whatsapp:hover {
+  transform: scale(1.05);
+  background: var(--wa-hover);
+  color: var(--white);
+}
+
+.whatsappLabel {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 1040px) {
+  .heroTitle {
+    font-size: 50px;
+  }
+
+  .heroImg,
+  .aboutImg,
+  .onlineImg {
+    height: 420px;
+  }
+
+  .reasonsGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Al apilarse, la última fila de la primera columna y la primera de la
+     segunda quedarían con doble línea. */
+  .reasonsCol:first-child .reason:last-child {
+    border-bottom: 0;
+  }
+
+  .cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .quote {
+    height: 340px;
+  }
+
+  .quoteCard {
+    padding: 34px 30px;
+  }
+
+  .quoteCard p {
+    font-size: 25px;
+  }
+
+  .contactTitle {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroTitle {
+    font-size: 39px;
+  }
+
+  .heroActions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .heroLink {
+    text-align: center;
+  }
+
+  .heroImg,
+  .aboutImg,
+  .onlineImg {
+    height: 330px;
+  }
+
+  .reasonsClosing {
+    font-size: 21px;
+    margin-top: 32px;
+  }
+
+  .quote {
+    height: 300px;
+  }
+
+  .quoteCard p {
+    font-size: 21px;
+  }
+
+  .faqQuestion {
+    font-size: 20px;
+  }
+
+  .contactTitle {
+    font-size: 28px;
+  }
+
+  .contactLinks {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .footerInner {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .whatsapp {
+    right: 18px;
+    bottom: 18px;
+    padding: 16px;
+    border-radius: 50%;
+  }
+
+  .whatsappLabel {
+    display: none;
+  }
+}
