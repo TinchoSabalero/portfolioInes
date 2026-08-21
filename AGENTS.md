@@ -22,7 +22,19 @@ npm run lint
 npx tsc --noEmit
 ```
 
-No hay tests todavía.
+No hay tests todavía ni runner instalado. El alias de imports es `@/*` → `src/*`.
+
+## Estado
+
+Existe la portada y nada más: una sola ruta, sin API, sin base de datos y sin
+destino de deploy decidido. Está pensada para crecer hacia un panel donde la
+psicóloga edite su propio contenido — de ahí la forma de la capa de contenido
+que se describe abajo.
+
+Pendiente de datos reales de la clienta: matrícula, universidad, años de
+experiencia, precios, medios de pago, email y número de WhatsApp (sin ese
+número el link `wa.me` no funciona). También falta el dominio definitivo para
+completar `metadataBase` y la imagen de OpenGraph en `src/app/layout.tsx`.
 
 ## La regla que ordena el proyecto
 
