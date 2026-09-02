@@ -201,12 +201,60 @@ export const siteContent: SiteContent = {
     body: "En Instagram publico material sobre lo que aparece en terapia: vínculos, ansiedad y las cosas que solemos repetir sin darnos cuenta.",
     cta: "Seguime en Instagram",
     posts: [
-      { image: { src: "/img/ig-1.jpg", alt: "Publicación de Instagram", width: 600, height: 600 }, href: "https://instagram.com/psicologa_inestaboga" },
-      { image: { src: "/img/ig-2.jpg", alt: "Publicación de Instagram", width: 600, height: 600 }, href: "https://instagram.com/psicologa_inestaboga" },
-      { image: { src: "/img/ig-3.jpg", alt: "Publicación de Instagram", width: 600, height: 600 }, href: "https://instagram.com/psicologa_inestaboga" },
-      { image: { src: "/img/ig-4.jpg", alt: "Publicación de Instagram", width: 600, height: 600 }, href: "https://instagram.com/psicologa_inestaboga" },
-      { image: { src: "/img/ig-5.jpg", alt: "Publicación de Instagram", width: 600, height: 600 }, href: "https://instagram.com/psicologa_inestaboga" },
-      { image: { src: "/img/ig-6.jpg", alt: "Publicación de Instagram", width: 600, height: 600 }, href: "https://instagram.com/psicologa_inestaboga" },
+      {
+        image: {
+          src: "/img/ig-1.jpg",
+          alt: "Ver publicación en Instagram",
+          width: 600,
+          height: 600,
+        },
+        href: "https://www.instagram.com/p/Dba19GukRFY/",
+      },
+      {
+        image: {
+          src: "/img/ig-2.jpg",
+          alt: "Ver publicación en Instagram",
+          width: 600,
+          height: 600,
+        },
+        href: "https://www.instagram.com/p/DbMNBtYClpq/",
+      },
+      {
+        image: {
+          src: "/img/ig-3.jpg",
+          alt: "Ver publicación en Instagram",
+          width: 600,
+          height: 600,
+        },
+        href: "https://www.instagram.com/p/DaVQnKMFsm8/",
+      },
+      {
+        image: {
+          src: "/img/ig-4.jpg",
+          alt: "Ver publicación en Instagram",
+          width: 600,
+          height: 600,
+        },
+        href: "https://www.instagram.com/p/DZvovuZFoPh/",
+      },
+      {
+        image: {
+          src: "/img/ig-5.jpg",
+          alt: "Ver publicación en Instagram",
+          width: 600,
+          height: 600,
+        },
+        href: "https://www.instagram.com/p/DZLqMtAlnhj/",
+      },
+      {
+        image: {
+          src: "/img/ig-6.jpg",
+          alt: "Ver publicación en Instagram",
+          width: 600,
+          height: 600,
+        },
+        href: "https://www.instagram.com/p/DZ-RJHOib3z/",
+      },
     ],
   },
 
