@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { SiteContent } from "@/content/site";
-import { ArrowRight, WhatsAppIcon } from "./Icons";
+import { ArrowRight, InstagramIcon, WhatsAppIcon } from "./Icons";
 import styles from "./Sections.module.css";
 
 /* ---------------------------------------------------------------- Hero -- */
@@ -133,7 +133,13 @@ export function Method({ method }: { method: SiteContent["method"] }) {
 
 /* ------------------------------------------------------------- Sobre mí -- */
 
-export function About({ about }: { about: SiteContent["about"] }) {
+export function About({
+  about,
+  instagram,
+}: {
+  about: SiteContent["about"];
+  instagram: SiteContent["profile"]["instagram"];
+}) {
   return (
     <section id="sobre-mi" className="band">
       <div className="wrap section split">
@@ -153,6 +159,15 @@ export function About({ about }: { about: SiteContent["about"] }) {
           {about.paragraphs.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
+          <a
+            href={instagram.href}
+            className={styles.aboutSocial}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <InstagramIcon size={18} />
+            {instagram.handle}
+          </a>
         </div>
       </div>
     </section>
@@ -185,14 +200,67 @@ export function Online({ online }: { online: SiteContent["online"] }) {
   );
 }
 
+/* ------------------------------------------------------------ Instagram -- */
+
+export function Instagram({
+  instagram,
+  profile,
+}: {
+  instagram: SiteContent["instagram"];
+  profile: SiteContent["profile"]["instagram"];
+}) {
+  return (
+    <section className="wrap section">
+      <div className={styles.igHead}>
+        <div className={styles.head} style={{ marginBottom: 0 }}>
+          <p className="eyebrow">{instagram.eyebrow}</p>
+          <h2 className="title">{instagram.title}</h2>
+          <p className={styles.igBody}>{instagram.body}</p>
+        </div>
+
+        <a
+          href={profile.href}
+          className={`btn btn-quiet ${styles.igCta}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <InstagramIcon size={17} />
+          {instagram.cta}
+        </a>
+      </div>
+
+      <div className={styles.igGrid}>
+        {instagram.posts.map((post) => (
+          <a
+            key={post.image.src}
+            href={post.href}
+            className={styles.igTile}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src={post.image.src}
+              alt={post.image.alt}
+              width={post.image.width}
+              height={post.image.height}
+            />
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 /* ------------------------------------------------------------- Contacto -- */
 
 export function Contact({
   contact,
   profile,
+  whatsappHref,
 }: {
   contact: SiteContent["contact"];
   profile: SiteContent["profile"];
+  whatsappHref: string;
 }) {
   return (
     <section id="contacto" className={styles.contact}>
@@ -202,19 +270,17 @@ export function Contact({
         <p className={styles.contactBody}>{contact.body}</p>
 
         <a
-          href={profile.whatsapp.href}
+          href={whatsappHref}
           className={`btn btn-invert ${styles.contactCta}`}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           {contact.cta}
           <ArrowRight />
         </a>
 
         <div className={styles.contactLinks}>
-          <a
-            href={profile.whatsapp.href}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
             {profile.whatsapp.display}
           </a>
           <a

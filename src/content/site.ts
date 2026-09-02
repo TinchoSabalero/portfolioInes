@@ -22,6 +22,7 @@ export type SiteContent = {
   about: Section & { paragraphs: string[]; image: Img };
   online: Section & { paragraphs: string[]; image: Img };
   faq: Section & { items: FaqItem[] };
+  instagram: Instagram;
   contact: Contact;
 };
 
@@ -29,7 +30,13 @@ export type Profile = {
   name: string;
   role: string;
   license: string;
-  whatsapp: { display: string; href: string };
+  whatsapp: {
+    display: string;
+    /** Solo dígitos, como lo pide wa.me: país + 9 + característica + abonado. */
+    number: string;
+    /** Texto que aparece ya escrito en el chat. Se escapa al armar el enlace. */
+    message: string;
+  };
   instagram: { handle: string; href: string };
 };
 
@@ -37,6 +44,13 @@ export type NavItem = { label: string; href: string };
 export type Section = { eyebrow?: string; title: string };
 export type FaqItem = { q: string; a: string };
 export type Contact = Section & { body: string; cta: string };
+export type Instagram = Section & {
+  body: string;
+  cta: string;
+  posts: InstagramPost[];
+};
+/** `href` apunta a la publicación cuando se conozca; mientras tanto, al perfil. */
+export type InstagramPost = { image: Img; href: string };
 
 export const siteContent: SiteContent = {
   profile: {
@@ -45,7 +59,8 @@ export const siteContent: SiteContent = {
     license: "M.P. 1805",
     whatsapp: {
       display: "+54 9 342 535 6376",
-      href: "https://wa.me/5493425356376",
+      number: "5493425356376",
+      message: "Hola! quisiera más información para empezar terapia.",
     },
     instagram: {
       handle: "@psicologa_inestaboga",
@@ -177,6 +192,21 @@ export const siteContent: SiteContent = {
         q: "¿Qué pasa si necesito cancelar una sesión?",
         a: "Avisando con 24 horas de anticipación, la reprogramamos sin costo. Las cancelaciones con menos aviso se abonan, porque ese horario queda reservado para vos.",
       },
+    ],
+  },
+
+  instagram: {
+    eyebrow: "Instagram",
+    title: "Lo que comparto",
+    body: "En Instagram publico material sobre lo que aparece en terapia: vínculos, ansiedad y las cosas que solemos repetir sin darnos cuenta.",
+    cta: "Seguime en Instagram",
+    posts: [
+      { image: { src: "/img/ig-1.jpg", alt: "Publicación de Instagram", width: 600, height: 600 }, href: "https://instagram.com/psicologa_inestaboga" },
+      { image: { src: "/img/ig-2.jpg", alt: "Publicación de Instagram", width: 600, height: 600 }, href: "https://instagram.com/psicologa_inestaboga" },
+      { image: { src: "/img/ig-3.jpg", alt: "Publicación de Instagram", width: 600, height: 600 }, href: "https://instagram.com/psicologa_inestaboga" },
+      { image: { src: "/img/ig-4.jpg", alt: "Publicación de Instagram", width: 600, height: 600 }, href: "https://instagram.com/psicologa_inestaboga" },
+      { image: { src: "/img/ig-5.jpg", alt: "Publicación de Instagram", width: 600, height: 600 }, href: "https://instagram.com/psicologa_inestaboga" },
+      { image: { src: "/img/ig-6.jpg", alt: "Publicación de Instagram", width: 600, height: 600 }, href: "https://instagram.com/psicologa_inestaboga" },
     ],
   },
 
