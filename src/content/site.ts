@@ -44,13 +44,7 @@ export type NavItem = { label: string; href: string };
 export type Section = { eyebrow?: string; title: string };
 export type FaqItem = { q: string; a: string };
 export type Contact = Section & { body: string; cta: string };
-export type Instagram = Section & {
-  body: string;
-  cta: string;
-  posts: InstagramPost[];
-};
-/** `href` apunta a la publicación cuando se conozca; mientras tanto, al perfil. */
-export type InstagramPost = { image: Img; href: string };
+export type Instagram = Section & { body: string; cta: string };
 
 export const siteContent: SiteContent = {
   profile: {
@@ -196,66 +190,9 @@ export const siteContent: SiteContent = {
   },
 
   instagram: {
-    eyebrow: "Instagram",
     title: "Lo que comparto",
     body: "En Instagram publico material sobre lo que aparece en terapia: vínculos, ansiedad y las cosas que solemos repetir sin darnos cuenta.",
     cta: "Seguime en Instagram",
-    posts: [
-      {
-        image: {
-          src: "/img/ig-1.jpg",
-          alt: "Ver publicación en Instagram",
-          width: 600,
-          height: 600,
-        },
-        href: "https://www.instagram.com/p/Dba19GukRFY/",
-      },
-      {
-        image: {
-          src: "/img/ig-2.jpg",
-          alt: "Ver publicación en Instagram",
-          width: 600,
-          height: 600,
-        },
-        href: "https://www.instagram.com/p/DbMNBtYClpq/",
-      },
-      {
-        image: {
-          src: "/img/ig-3.jpg",
-          alt: "Ver publicación en Instagram",
-          width: 600,
-          height: 600,
-        },
-        href: "https://www.instagram.com/p/DaVQnKMFsm8/",
-      },
-      {
-        image: {
-          src: "/img/ig-4.jpg",
-          alt: "Ver publicación en Instagram",
-          width: 600,
-          height: 600,
-        },
-        href: "https://www.instagram.com/p/DZvovuZFoPh/",
-      },
-      {
-        image: {
-          src: "/img/ig-5.jpg",
-          alt: "Ver publicación en Instagram",
-          width: 600,
-          height: 600,
-        },
-        href: "https://www.instagram.com/p/DZLqMtAlnhj/",
-      },
-      {
-        image: {
-          src: "/img/ig-6.jpg",
-          alt: "Ver publicación en Instagram",
-          width: 600,
-          height: 600,
-        },
-        href: "https://www.instagram.com/p/DZ-RJHOib3z/",
-      },
-    ],
   },
 
   contact: {

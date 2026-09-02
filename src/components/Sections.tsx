@@ -202,6 +202,7 @@ export function Online({ online }: { online: SiteContent["online"] }) {
 
 /* ------------------------------------------------------------ Instagram -- */
 
+/** Franja breve, solo para dar un acceso claro al perfil. */
 export function Instagram({
   instagram,
   profile,
@@ -210,42 +211,22 @@ export function Instagram({
   profile: SiteContent["profile"]["instagram"];
 }) {
   return (
-    <section className="wrap section">
-      <div className={styles.igHead}>
-        <div className={styles.head} style={{ marginBottom: 0 }}>
-          <p className="eyebrow">{instagram.eyebrow}</p>
-          <h2 className="title">{instagram.title}</h2>
+    <section className="band">
+      <div className={`wrap ${styles.igBand}`}>
+        <div className={styles.igText}>
+          <h2 className={styles.igTitle}>{instagram.title}</h2>
           <p className={styles.igBody}>{instagram.body}</p>
         </div>
 
         <a
           href={profile.href}
-          className={`btn btn-quiet ${styles.igCta}`}
+          className={`btn ${styles.igCta}`}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <InstagramIcon size={17} />
+          <InstagramIcon size={18} />
           {instagram.cta}
         </a>
-      </div>
-
-      <div className={styles.igGrid}>
-        {instagram.posts.map((post) => (
-          <a
-            key={post.image.src}
-            href={post.href}
-            className={styles.igTile}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src={post.image.src}
-              alt={post.image.alt}
-              width={post.image.width}
-              height={post.image.height}
-            />
-          </a>
-        ))}
       </div>
     </section>
   );
