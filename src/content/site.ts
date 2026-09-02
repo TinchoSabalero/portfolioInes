@@ -18,8 +18,8 @@ export type SiteContent = {
   reasons: Reasons;
   services: Section & { items: string[] };
   quote: string;
-  method: Section & { paragraphs: string[] };
-  about: Section & { paragraphs: string[]; credentials: string[]; image: Img };
+  method: Section & { lead: string; paragraphs: string[] };
+  about: Section & { paragraphs: string[]; image: Img };
   online: Section & { paragraphs: string[]; image: Img };
   faq: Section & { items: FaqItem[] };
   contact: Contact;
@@ -29,7 +29,6 @@ export type Profile = {
   name: string;
   role: string;
   license: string;
-  email: string;
   whatsapp: { display: string; href: string };
   instagram: { handle: string; href: string };
 };
@@ -44,8 +43,10 @@ export const siteContent: SiteContent = {
     name: "Inés Taboga",
     role: "Psicóloga integral",
     license: "[M.N. 00000]",
-    email: "[tu-email]",
-    whatsapp: { display: "WhatsApp [+54 9 ...]", href: "https://wa.me/[NUMERO]" },
+    whatsapp: {
+      display: "+54 9 342 535 6376",
+      href: "https://wa.me/5493425356376",
+    },
     instagram: {
       handle: "@psicologa_inestaboga",
       href: "https://instagram.com/psicologa_inestaboga",
@@ -105,7 +106,8 @@ export const siteContent: SiteContent = {
     "No se trata de convertirte en otra persona, sino de dejar de pelearte con la que sos.",
 
   method: {
-    title: "Un espacio para entenderte, no para juzgarte.",
+    title: "Mi manera de trabajar",
+    lead: "Un espacio para entenderte, no para juzgarte.",
     paragraphs: [
       "En terapia partimos de lo que hoy te está pasando. Miramos juntos qué pensás, qué sentís y cómo interpretás eso que vivís, porque muchas veces no es solo lo que sucede lo que genera malestar, sino también la manera en que lo estamos mirando.",
       "El trabajo terapéutico busca poder cuestionar esas formas de pensar que a veces repetimos de manera automática, comprender de dónde vienen y abrir la posibilidad de mirar lo que nos pasa desde otro lugar.",
@@ -120,10 +122,6 @@ export const siteContent: SiteContent = {
     paragraphs: [
       "Soy psicóloga clínica, graduada en la Universidad Católica de Santa Fe y hace 11 años acompaño a personas que están atravesando momentos de ansiedad, crisis, conflictos vinculares o etapas en las que sienten que necesitan volver a encontrarse con ellas mismas.",
       "Para mí, la terapia no se trata solamente de hablar de lo que duele. También es un espacio para comprenderte, adquirir herramientas y empezar a relacionarte de otra manera con vos y con los demás.",
-    ],
-    credentials: [
-      "[Formación de posgrado — completar]",
-      "[Especialización / cursos destacados — completar]",
     ],
     image: {
       src: "/img/sobre-mi.jpg",

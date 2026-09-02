@@ -116,7 +116,10 @@ export function Method({ method }: { method: SiteContent["method"] }) {
   return (
     <section className="wrap section">
       <div className="split split-top">
-        <h2 className={`title ${styles.methodTitle}`}>{method.title}</h2>
+        <div className={styles.methodHead}>
+          <h2 className="title">{method.title}</h2>
+          <p className={styles.methodLead}>{method.lead}</p>
+        </div>
 
         <div className={styles.methodBody}>
           {method.paragraphs.map((paragraph) => (
@@ -150,11 +153,6 @@ export function About({ about }: { about: SiteContent["about"] }) {
           {about.paragraphs.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
-          <div className={styles.credentials}>
-            {about.credentials.map((line) => (
-              <p key={line}>{line}</p>
-            ))}
-          </div>
         </div>
       </div>
     </section>
@@ -212,8 +210,13 @@ export function Contact({
         </a>
 
         <div className={styles.contactLinks}>
-          <a href={`mailto:${profile.email}`}>{profile.email}</a>
-          <a href={profile.whatsapp.href}>{profile.whatsapp.display}</a>
+          <a
+            href={profile.whatsapp.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {profile.whatsapp.display}
+          </a>
           <a
             href={profile.instagram.href}
             target="_blank"
