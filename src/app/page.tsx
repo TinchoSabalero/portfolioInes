@@ -14,14 +14,24 @@ import {
 } from "@/components/Sections";
 import { SiteHeader } from "@/components/SiteHeader";
 import { getSiteContent } from "@/lib/content";
+import { buildSchema } from "@/lib/schema";
 import { buildWhatsAppHref } from "@/lib/whatsapp";
+
+export const SITIO = "https://inestaboga.com";
 
 export default async function Home() {
   const content = await getSiteContent();
   const whatsappHref = buildWhatsAppHref(content.profile.whatsapp);
+  const schema = buildSchema(content, SITIO);
 
   return (
     <>
+      {/* Datos estructurados: lo que leen buscadores y asistentes de IA. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+
       <SiteHeader profile={content.profile} nav={content.nav} />
 
       <main>
