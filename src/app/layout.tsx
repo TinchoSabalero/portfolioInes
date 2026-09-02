@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Karla } from "next/font/google";
+import { SITIO } from "@/lib/site";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -27,8 +28,6 @@ const karla = Karla({
  * sale sin imagen — y ése es justamente el canal por donde la van a
  * recomendar.
  */
-const SITIO = "https://inestaboga.com";
-
 const TITULO = "Inés Taboga · Psicóloga · Terapia online en español";
 const DESCRIPCION =
   "Terapia online en español para personas en Argentina y para quienes viven en el exterior. Sesiones por videollamada, con horario coordinado según tu huso.";

@@ -86,14 +86,14 @@ export const siteContent: SiteContent = {
   reasons: {
     title: "Quizás llegaste hasta acá porque…",
     items: [
-      "Te fuiste del país y sentís que estás empezando de cero, otra vez.",
-      "La ansiedad te ocupa más lugar del que quisieras.",
-      "Repetís los mismos vínculos y no terminás de entender por qué.",
-      "Estás atravesando un duelo que nadie a tu alrededor termina de dimensionar.",
-      "Querés hablar en tu idioma, con alguien que entienda de dónde venís.",
-      "Hace rato que pensás en empezar terapia y siempre lo postergás.",
+      "Sentís que tu mente no para.",
+      "Te cuesta poner límites sin culpa.",
+      "Repetís vínculos que te hacen mal.",
+      "Estás atravesando una separación o un momento de cambio.",
+      "Sentís ansiedad, inseguridad o agotamiento emocional.",
+      "Sabés que algo necesita cambiar, pero no sabés por dónde empezar.",
     ],
-    closing: "Ninguna de esas razones es demasiado chica para pedir ayuda.",
+    closing: "No necesitás tener todo claro para empezar terapia.",
   },
 
   services: {

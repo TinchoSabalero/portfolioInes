@@ -15,9 +15,8 @@ import {
 import { SiteHeader } from "@/components/SiteHeader";
 import { getSiteContent } from "@/lib/content";
 import { buildSchema } from "@/lib/schema";
+import { SITIO } from "@/lib/site";
 import { buildWhatsAppHref } from "@/lib/whatsapp";
-
-export const SITIO = "https://inestaboga.com";
 
 export default async function Home() {
   const content = await getSiteContent();
