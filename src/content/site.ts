@@ -16,11 +16,11 @@ export type SiteContent = {
   nav: NavItem[];
   hero: Hero;
   reasons: Reasons;
-  services: Section & { items: Service[] };
+  services: Section & { items: string[] };
   quote: string;
   method: Section & { paragraphs: string[] };
   about: Section & { paragraphs: string[]; credentials: string[]; image: Img };
-  online: Section & { intro: string; points: OnlinePoint[]; image: Img };
+  online: Section & { paragraphs: string[]; image: Img };
   faq: Section & { items: FaqItem[] };
   contact: Contact;
 };
@@ -36,10 +36,6 @@ export type Profile = {
 
 export type NavItem = { label: string; href: string };
 export type Section = { eyebrow?: string; title: string };
-export type Service = { icon: ServiceIcon; title: string; body: string };
-export type ServiceIcon = "heart" | "bond" | "journey";
-export type OnlinePoint = { icon: OnlineIcon; body: string };
-export type OnlineIcon = "clock" | "screen" | "card";
 export type FaqItem = { q: string; a: string };
 export type Contact = Section & { body: string; cta: string };
 
@@ -92,23 +88,16 @@ export const siteContent: SiteContent = {
 
   services: {
     eyebrow: "Terapia",
-    title: "Cómo puedo acompañarte",
+    title: "Puedo acompañarte si estás atravesando:",
     items: [
-      {
-        icon: "heart",
-        title: "Terapia individual",
-        body: "Ansiedad, tristeza, autoestima, decisiones que se vienen postergando. Un espacio para entender qué te pasa y qué querés hacer con eso.",
-      },
-      {
-        icon: "bond",
-        title: "Vínculos y pareja",
-        body: "Discusiones que se repiten, distancia, celos, el peso de sostener a otros. Revisamos qué lugar ocupás vos en tus relaciones.",
-      },
-      {
-        icon: "journey",
-        title: "Migración y desarraigo",
-        body: "Armar una vida en otro país tiene costos que casi nadie nombra. Trabajamos la culpa, la distancia y la identidad que se reacomoda.",
-      },
+      "Ansiedad y sobrepensamiento",
+      "Autoestima e inseguridad",
+      "Dificultades en vínculos",
+      "Dependencia emocional",
+      "Separaciones y duelos",
+      "Dificultad para poner límites",
+      "Crisis personales o momentos de cambio",
+      "Sensación de vacío, bloqueo o desconexión",
     ],
   },
 
@@ -147,21 +136,9 @@ export const siteContent: SiteContent = {
   online: {
     eyebrow: "Terapia online",
     title: "Estés donde estés, en tu idioma",
-    intro:
-      "Atiendo por videollamada a personas en Argentina y en cualquier otro país. La distancia no cambia lo esencial: un horario fijo, un espacio propio y alguien del otro lado escuchando.",
-    points: [
-      {
-        icon: "clock",
-        body: "Coordinamos el horario según tu huso. Trabajo con agenda flexible para Europa y Norteamérica.",
-      },
-      {
-        icon: "screen",
-        body: "Solo necesitás una hora tranquila, un lugar donde nadie te interrumpa y buena conexión.",
-      },
-      {
-        icon: "card",
-        body: "Pago desde el exterior por [medio de pago] y desde Argentina por [transferencia / Mercado Pago].",
-      },
+    paragraphs: [
+      "Brindo atención psicológica online para personas de habla hispana que viven en Argentina o en otros países.",
+      "Las sesiones se realizan por videollamada, en un espacio confidencial y cercano, para que puedas sostener tu proceso terapéutico desde el lugar en el que estés.",
     ],
     image: {
       src: "/img/online.jpg",
@@ -172,41 +149,44 @@ export const siteContent: SiteContent = {
   },
 
   faq: {
-    eyebrow: "Preguntas frecuentes",
-    title: "Lo que suelen preguntarme antes de empezar",
+    title: "Preguntas frecuentes",
     items: [
       {
-        q: "¿Cómo es la primera entrevista?",
-        a: "Es una conversación de unos 50 minutos para conocernos. Me contás qué te trae, yo te cuento cómo trabajo y entre los dos vemos si tiene sentido seguir. No hay ningún compromiso de continuar.",
+        q: "¿Cuánto dura una sesión?",
+        a: "Cada sesión tiene una duración aproximada de 60 minutos.",
       },
       {
-        q: "Vivo en otro país, ¿cómo hacemos con el horario?",
-        a: "Lo acordamos según tu huso horario. Tengo franjas reservadas para Europa por la mañana argentina y para Norteamérica por la tarde. Fijamos un día y hora estables, para que la terapia tenga continuidad.",
+        q: "¿Las sesiones pueden ser online?",
+        a: "Sí. Brindo atención online para personas de habla hispana, que se encuentran en cualquier parte del mundo.",
       },
       {
-        q: "¿La terapia online funciona igual que la presencial?",
-        a: "Sí. La evidencia disponible muestra resultados equivalentes a los del formato presencial para la mayoría de las consultas. Lo que sostiene un tratamiento es el vínculo y la regularidad, y eso se construye igual a través de la pantalla.",
+        q: "¿Cómo son las sesiones online?",
+        a: "Se realizan por videollamada, en un espacio privado y confidencial. Solo necesitás contar con una buena conexión a internet y un lugar donde puedas hablar con tranquilidad.",
       },
       {
-        q: "¿Cada cuánto son las sesiones y cuánto duran?",
-        a: "Duran 50 minutos y en general son semanales. Esa frecuencia es la que permite que el trabajo tenga hilo. Si en algún momento conviene espaciarlas, lo conversamos.",
+        q: "¿Qué pasa en la primera sesión?",
+        a: "La primera sesión es un espacio para conocernos, conversar sobre qué te está pasando y qué te gustaría trabajar. No necesitás llegar con todo claro ni saber exactamente por dónde empezar.",
       },
       {
-        q: "¿Cuánto sale y cómo se paga desde el exterior?",
-        a: "La sesión tiene un valor de [PRECIO ARS] para Argentina y [PRECIO USD/EUR] desde el exterior. Se abona por [medios de pago]. Si el valor es un obstáculo, escribime y lo hablamos.",
+        q: "¿Cómo sé si necesito empezar terapia?",
+        a: "No hace falta estar atravesando una crisis para comenzar. Podés consultar si hay algo que te genera malestar, si sentís que repetís situaciones que no querés, si necesitás comprenderte mejor o simplemente si querés empezar a relacionarte de otra manera con vos y con lo que te pasa.",
+      },
+      {
+        q: "¿Cómo solicito un turno?",
+        a: "Podés contactarme directamente a través de WhatsApp. Coordinamos disponibilidad y modalidad de atención.",
       },
       {
         q: "¿Qué pasa si necesito cancelar una sesión?",
-        a: "Avisando con [24/48] horas de anticipación, la reprogramamos sin costo. Las cancelaciones con menos aviso se abonan, porque ese horario queda reservado para vos.",
+        a: "Avisando con 24 horas de anticipación, la reprogramamos sin costo. Las cancelaciones con menos aviso se abonan, porque ese horario queda reservado para vos.",
       },
     ],
   },
 
   contact: {
     eyebrow: "Contacto",
-    title: "Empezar suele ser lo más difícil",
-    body: "Escribime contándome brevemente qué te pasa y coordinamos una primera entrevista. Respondo personalmente, en un plazo de [24/48] horas.",
-    cta: "Agendar una primera entrevista",
+    title: "Mi objetivo es que puedas volver a vos y vivas una vida que vale la pena",
+    body: "Escribime contándome brevemente qué te pasa y coordinamos una primera sesión. Respondo personalmente, en un plazo de [24/48] horas.",
+    cta: "Agendá una sesión conmigo",
   },
 };
 

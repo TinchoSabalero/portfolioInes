@@ -16,10 +16,7 @@ export function Faq({ faq }: { faq: SiteContent["faq"] }) {
   return (
     <section id="faq" className="band">
       <div className="wrap wrap-narrow section">
-        <div className={`${styles.head} ${styles.headTight}`}>
-          <p className="eyebrow">{faq.eyebrow}</p>
-          <h2 className="title">{faq.title}</h2>
-        </div>
+        <h2 className={`title ${styles.faqTitle}`}>{faq.title}</h2>
 
         <div className={styles.faqList}>
           {faq.items.map((item, index) => {

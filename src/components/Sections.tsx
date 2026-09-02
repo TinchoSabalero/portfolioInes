@@ -1,11 +1,6 @@
 import Image from "next/image";
 import type { SiteContent } from "@/content/site";
-import {
-  ArrowRight,
-  WhatsAppIcon,
-  onlineIcons,
-  serviceIcons,
-} from "./Icons";
+import { ArrowRight, WhatsAppIcon } from "./Icons";
 import styles from "./Sections.module.css";
 
 /* ---------------------------------------------------------------- Hero -- */
@@ -92,18 +87,13 @@ export function Services({ services }: { services: SiteContent["services"] }) {
         <h2 className="title">{services.title}</h2>
       </div>
 
-      <div className={styles.cards}>
-        {services.items.map((service) => {
-          const Icon = serviceIcons[service.icon];
-          return (
-            <article key={service.title} className={styles.card}>
-              <Icon size={26} />
-              <h3 className={styles.cardTitle}>{service.title}</h3>
-              <p>{service.body}</p>
-            </article>
-          );
-        })}
-      </div>
+      <ul className={styles.topics}>
+        {services.items.map((item) => (
+          <li key={item} className={styles.topic}>
+            {item}
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
@@ -179,21 +169,11 @@ export function Online({ online }: { online: SiteContent["online"] }) {
       <div className={styles.onlineText}>
         <p className={`eyebrow ${styles.onlineEyebrow}`}>{online.eyebrow}</p>
         <h2 className="title">{online.title}</h2>
-        <p className="lede" style={{ maxWidth: "44ch" }}>
-          {online.intro}
-        </p>
-
-        <div className={styles.onlinePoints}>
-          {online.points.map((point) => {
-            const Icon = onlineIcons[point.icon];
-            return (
-              <div key={point.body} className={styles.onlinePoint}>
-                <Icon size={20} />
-                <p>{point.body}</p>
-              </div>
-            );
-          })}
-        </div>
+        {online.paragraphs.map((paragraph) => (
+          <p key={paragraph} className={styles.onlineParagraph}>
+            {paragraph}
+          </p>
+        ))}
       </div>
 
       <Image

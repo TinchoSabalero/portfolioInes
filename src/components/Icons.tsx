@@ -13,21 +13,6 @@ const stroke = {
   strokeLinejoin: "round" as const,
 };
 
-function Svg({ size = 24, className, children }: IconProps & { children: React.ReactNode }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      className={className}
-      aria-hidden="true"
-      {...stroke}
-    >
-      {children}
-    </svg>
-  );
-}
-
 export function ArrowRight({ size = 15, className }: IconProps) {
   return (
     <svg
@@ -45,63 +30,6 @@ export function ArrowRight({ size = 15, className }: IconProps) {
   );
 }
 
-/** Terapia individual */
-export function HeartIcon(props: IconProps) {
-  return (
-    <Svg {...props}>
-      <path d="M12 21c-4-3.2-7-6.2-7-10a4.6 4.6 0 0 1 7-3.9A4.6 4.6 0 0 1 19 11c0 3.8-3 6.8-7 10z" />
-    </Svg>
-  );
-}
-
-/** Vínculos y pareja */
-export function BondIcon(props: IconProps) {
-  return (
-    <Svg {...props}>
-      <circle cx="9" cy="12" r="5.5" />
-      <circle cx="15" cy="12" r="5.5" />
-    </Svg>
-  );
-}
-
-/** Migración y desarraigo */
-export function JourneyIcon(props: IconProps) {
-  return (
-    <Svg {...props}>
-      <path d="M4 20c3-1.5 4-5 3-8s0-6 3-7" />
-      <circle cx="17" cy="7" r="3" />
-      <path d="M14 20h6" />
-    </Svg>
-  );
-}
-
-export function ClockIcon(props: IconProps) {
-  return (
-    <Svg {...props}>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M12 7v5l3.5 2" />
-    </Svg>
-  );
-}
-
-export function ScreenIcon(props: IconProps) {
-  return (
-    <Svg {...props}>
-      <rect x="3" y="5" width="18" height="12" rx="1.5" />
-      <path d="M8 20h8" />
-    </Svg>
-  );
-}
-
-export function CardIcon(props: IconProps) {
-  return (
-    <Svg {...props}>
-      <rect x="3" y="6" width="18" height="12" rx="2" />
-      <path d="M3 10h18" />
-    </Svg>
-  );
-}
-
 export function WhatsAppIcon({ size = 24, className }: IconProps) {
   return (
     <svg
@@ -116,16 +44,3 @@ export function WhatsAppIcon({ size = 24, className }: IconProps) {
     </svg>
   );
 }
-
-/** Mapea el nombre guardado en el contenido al componente que lo dibuja. */
-export const serviceIcons = {
-  heart: HeartIcon,
-  bond: BondIcon,
-  journey: JourneyIcon,
-} as const;
-
-export const onlineIcons = {
-  clock: ClockIcon,
-  screen: ScreenIcon,
-  card: CardIcon,
-} as const;
