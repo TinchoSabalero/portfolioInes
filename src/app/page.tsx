@@ -22,7 +22,7 @@ export default async function Home() {
       <SiteHeader profile={content.profile} nav={content.nav} />
 
       <main>
-        <Hero hero={content.hero} />
+        <Hero hero={content.hero} whatsappHref={content.profile.whatsapp.href} />
         <Reasons reasons={content.reasons} />
         <Services services={content.services} />
         <Quote quote={content.quote} />

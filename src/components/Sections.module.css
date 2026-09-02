@@ -27,28 +27,6 @@
   gap: 30px;
 }
 
-.heroEyebrow {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  color: var(--accent);
-}
-
-.heroEyebrow::before {
-  content: "";
-  width: 44px;
-  height: 1px;
-  background: currentColor;
-  flex-shrink: 0;
-}
-
-.heroEyebrow span {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-}
-
 .heroTitle {
   font-family: var(--font-display);
   font-size: 70px;
@@ -75,13 +53,6 @@
   align-items: center;
   gap: 24px;
   margin-top: 6px;
-}
-
-.heroLink {
-  font-size: 13.5px;
-  color: var(--muted);
-  border-bottom: 1px solid var(--line-hover);
-  padding-bottom: 3px;
 }
 
 .heroImg {
@@ -216,42 +187,25 @@
 
 /* ---------- Método ---------- */
 
-.methodIntro {
-  margin-top: 12px;
-  max-width: 42ch;
+/* El titular queda solo en la columna izquierda, pegado arriba, y los
+   párrafos corren por la derecha. */
+.methodTitle {
+  max-width: 16ch;
+  position: sticky;
+  top: 120px;
+}
+
+.methodBody {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.methodBody p {
   font-size: 16px;
   line-height: 1.85;
   color: var(--muted);
-}
-
-.principles {
-  display: flex;
-  flex-direction: column;
-}
-
-.principle {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-  padding-block: 24px;
-  border-top: 1px solid var(--line);
-}
-
-.principle:last-child {
-  border-bottom: 1px solid var(--line);
-}
-
-.principleTitle {
-  font-family: var(--font-display);
-  font-size: 23px;
-  font-weight: 500;
-  color: var(--ink);
-}
-
-.principle p {
-  font-size: 15px;
-  line-height: 1.8;
-  color: var(--muted);
+  max-width: 56ch;
 }
 
 /* ---------- Sobre mí ---------- */
@@ -505,6 +459,11 @@
     font-size: 50px;
   }
 
+  .methodTitle {
+    position: static;
+    max-width: none;
+  }
+
   .heroImg,
   .aboutImg,
   .onlineImg {
@@ -548,13 +507,7 @@
   }
 
   .heroActions {
-    flex-direction: column;
     align-items: stretch;
-    gap: 16px;
-  }
-
-  .heroLink {
-    text-align: center;
   }
 
   .heroImg,

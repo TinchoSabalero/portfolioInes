@@ -10,13 +10,16 @@ import styles from "./Sections.module.css";
 
 /* ---------------------------------------------------------------- Hero -- */
 
-export function Hero({ hero }: { hero: SiteContent["hero"] }) {
+export function Hero({
+  hero,
+  whatsappHref,
+}: {
+  hero: SiteContent["hero"];
+  whatsappHref: string;
+}) {
   return (
     <section id="inicio" className={`wrap split ${styles.hero}`}>
       <div className={styles.heroText}>
-        <p className={styles.heroEyebrow}>
-          <span>{hero.eyebrow}</span>
-        </p>
         <h1 className={styles.heroTitle}>
           {hero.titleLead}
           <br />
@@ -24,12 +27,14 @@ export function Hero({ hero }: { hero: SiteContent["hero"] }) {
         </h1>
         <p className={styles.heroBody}>{hero.body}</p>
         <div className={styles.heroActions}>
-          <a href="#contacto" className="btn">
+          <a
+            href={whatsappHref}
+            className="btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {hero.cta}
             <ArrowRight />
-          </a>
-          <a href={hero.secondary.href} className={styles.heroLink}>
-            {hero.secondary.label}
           </a>
         </div>
       </div>
@@ -121,18 +126,11 @@ export function Method({ method }: { method: SiteContent["method"] }) {
   return (
     <section className="wrap section">
       <div className="split split-top">
-        <div className={styles.head} style={{ marginBottom: 0 }}>
-          <p className="eyebrow">{method.eyebrow}</p>
-          <h2 className="title">{method.title}</h2>
-          <p className={styles.methodIntro}>{method.intro}</p>
-        </div>
+        <h2 className={`title ${styles.methodTitle}`}>{method.title}</h2>
 
-        <div className={styles.principles}>
-          {method.principles.map((principle) => (
-            <div key={principle.title} className={styles.principle}>
-              <h3 className={styles.principleTitle}>{principle.title}</h3>
-              <p>{principle.body}</p>
-            </div>
+        <div className={styles.methodBody}>
+          {method.paragraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
       </div>

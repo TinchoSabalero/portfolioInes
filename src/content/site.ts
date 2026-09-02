@@ -18,7 +18,7 @@ export type SiteContent = {
   reasons: Reasons;
   services: Section & { items: Service[] };
   quote: string;
-  method: Section & { intro: string; principles: Principle[] };
+  method: Section & { paragraphs: string[] };
   about: Section & { paragraphs: string[]; credentials: string[]; image: Img };
   online: Section & { intro: string; points: OnlinePoint[]; image: Img };
   faq: Section & { items: FaqItem[] };
@@ -38,7 +38,6 @@ export type NavItem = { label: string; href: string };
 export type Section = { eyebrow?: string; title: string };
 export type Service = { icon: ServiceIcon; title: string; body: string };
 export type ServiceIcon = "heart" | "bond" | "journey";
-export type Principle = { title: string; body: string };
 export type OnlinePoint = { icon: OnlineIcon; body: string };
 export type OnlineIcon = "clock" | "screen" | "card";
 export type FaqItem = { q: string; a: string };
@@ -47,7 +46,7 @@ export type Contact = Section & { body: string; cta: string };
 export const siteContent: SiteContent = {
   profile: {
     name: "Inés Taboga",
-    role: "Psicóloga · Terapia online",
+    role: "Psicóloga integral",
     license: "[M.N. 00000]",
     email: "[tu-email]",
     whatsapp: { display: "WhatsApp [+54 9 ...]", href: "https://wa.me/[NUMERO]" },
@@ -66,12 +65,10 @@ export const siteContent: SiteContent = {
   ],
 
   hero: {
-    eyebrow: "Terapia online en español",
-    titleLead: "Un lugar para pensarte,",
-    titleAccent: "en tu idioma",
-    body: "Acompaño a personas en Argentina y a quienes viven lejos de casa. Sesiones por videollamada, con la misma continuidad y el mismo cuidado que en el consultorio.",
-    cta: "Agendar una primera entrevista",
-    secondary: { label: "Cómo trabajo", href: "#terapia" },
+    titleLead: "Te acompaño a",
+    titleAccent: "volver a vos",
+    body: "Un espacio para encontrarte con vos mismo, con más amorosidad, mirar de otra manera eso que hoy te hace sufrir y empezar a elegir desde quien realmente sos.",
+    cta: "Quiero comenzar terapia",
     image: {
       src: "/img/retrato.jpg",
       alt: "Retrato de Inés Taboga",
@@ -119,27 +116,12 @@ export const siteContent: SiteContent = {
     "No se trata de convertirte en otra persona, sino de dejar de pelearte con la que sos.",
 
   method: {
-    eyebrow: "Método",
-    title: "Mi manera de trabajar",
-    intro:
-      "No creo en las recetas ni en los consejos rápidos. Creo en escuchar con atención hasta que aparece algo que no se había podido decir antes.",
-    principles: [
-      {
-        title: "Escucha sin apuro",
-        body: "Cada persona llega con su tiempo. No hay una cantidad de sesiones fijada de antemano ni un guion que haya que cumplir.",
-      },
-      {
-        title: "Trabajo con lo que traés",
-        body: "Lo urgente y lo cotidiano también son material de análisis. De ahí solemos llegar a lo que verdaderamente importa.",
-      },
-      {
-        title: "Confidencialidad, siempre",
-        body: "Lo que pasa en sesión queda en sesión. Es la condición mínima para poder hablar con libertad.",
-      },
-      {
-        title: "Formación continua",
-        body: "Superviso mi práctica y sigo estudiando. Tu proceso merece a alguien que también se siga preguntando cosas.",
-      },
+    title: "Un espacio para entenderte, no para juzgarte.",
+    paragraphs: [
+      "En terapia partimos de lo que hoy te está pasando. Miramos juntos qué pensás, qué sentís y cómo interpretás eso que vivís, porque muchas veces no es solo lo que sucede lo que genera malestar, sino también la manera en que lo estamos mirando.",
+      "El trabajo terapéutico busca poder cuestionar esas formas de pensar que a veces repetimos de manera automática, comprender de dónde vienen y abrir la posibilidad de mirar lo que nos pasa desde otro lugar.",
+      "También trabajamos en volver al presente, conectar con lo que necesitás hoy y asumir un rol más activo frente a tu propia vida. No se trata de controlar todo lo que sucede, sino de poder elegir cómo posicionarte frente a eso.",
+      "Mi forma de trabajar es integral, cercana y adaptada a cada persona, buscando que puedas vivir con mayor conciencia, libertad y calma.",
     ],
   },
 
@@ -147,8 +129,8 @@ export const siteContent: SiteContent = {
     eyebrow: "Sobre mí",
     title: "Hola, soy Inés",
     paragraphs: [
-      "Soy psicóloga clínica, graduada en la [UNIVERSIDAD] y matriculada bajo el [M.N. 00000]. Hace [X] años que acompaño procesos terapéuticos, y desde hace [X] trabajo casi exclusivamente de forma online.",
-      "Buena parte de las personas que consulto están fuera de Argentina. Conozco de cerca lo que significa sostener una vida acá y los afectos allá, y lo raro que se vuelve todo cuando no podés explicarlo en tu propio idioma.",
+      "Soy psicóloga clínica, graduada en la Universidad Católica de Santa Fe y hace 11 años acompaño a personas que están atravesando momentos de ansiedad, crisis, conflictos vinculares o etapas en las que sienten que necesitan volver a encontrarse con ellas mismas.",
+      "Para mí, la terapia no se trata solamente de hablar de lo que duele. También es un espacio para comprenderte, adquirir herramientas y empezar a relacionarte de otra manera con vos y con los demás.",
     ],
     credentials: [
       "[Formación de posgrado — completar]",
@@ -229,12 +211,11 @@ export const siteContent: SiteContent = {
 };
 
 type Hero = {
-  eyebrow: string;
   titleLead: string;
   titleAccent: string;
   body: string;
+  /** Un solo llamado a la acción, y va directo a WhatsApp. */
   cta: string;
-  secondary: NavItem;
   image: Img;
 };
 
