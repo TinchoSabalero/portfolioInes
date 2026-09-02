@@ -42,7 +42,7 @@ export const siteContent: SiteContent = {
   profile: {
     name: "Inés Taboga",
     role: "Psicóloga integral",
-    license: "[M.N. 00000]",
+    license: "M.P. 1805",
     whatsapp: {
       display: "+54 9 342 535 6376",
       href: "https://wa.me/5493425356376",
