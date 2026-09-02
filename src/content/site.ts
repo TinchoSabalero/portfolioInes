@@ -83,9 +83,9 @@ export const siteContent: SiteContent = {
     cta: "Quiero comenzar terapia",
     image: {
       src: "/img/retrato.jpg",
-      alt: "Retrato de Inés Taboga",
-      width: 720,
-      height: 960,
+      alt: "Mesa y sillones del consultorio, vistos desde arriba",
+      width: 900,
+      height: 1200,
     },
   },
 
@@ -140,9 +140,9 @@ export const siteContent: SiteContent = {
     ],
     image: {
       src: "/img/sobre-mi.jpg",
-      alt: "Inés Taboga en su espacio de trabajo",
-      width: 820,
-      height: 820,
+      alt: "Retrato de Inés Taboga",
+      width: 900,
+      height: 900,
     },
   },
 
@@ -155,9 +155,9 @@ export const siteContent: SiteContent = {
     ],
     image: {
       src: "/img/online.jpg",
-      alt: "Sesión de terapia por videollamada",
-      width: 1000,
-      height: 700,
+      alt: "Notebook con una videollamada abierta sobre el escritorio del consultorio",
+      width: 900,
+      height: 1200,
     },
   },
 
